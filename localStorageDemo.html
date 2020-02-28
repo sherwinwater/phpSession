@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Local Storage Demo </h1>
+        <div id="msg"></div>
+        <button id="refresh" onclick="refresh()">Refresh</button><br><br>
+        Key:<input type="text" name="txtInput" id="txtInput"><br>
+        Value:<input type="text" name="txtValue" id="txtValue"><br><br>
+        <button id="add" onclick="setValue()">Add/Edit Value</button><br>
+
+        <script>
+            var msg = document.getElementById("msg");
+            var txtInput = document.getElementById("txtInput");
+            var txtValue = document.getElementById("txtValue");
+
+            function refresh() {
+
+                if (localStorage.syst10199) {
+                    msg.innerHTML = localStorage.syst10199;
+                } else {
+                    msg.innerHTML = "Nothing in local storage";
+                }
+                console.log(localStorage);
+            }
+
+            function setValue() {
+                    var key1 = txtInput.value;
+                    var value1 = txtValue.value;
+                
+                if (key1 !== "") {
+                    localStorage[key1] = value1;
+                    console.log(localStorage.getItem(key1));
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <div id="result"></div>
+
+        <script>
+            // Check browser support
+            if (typeof (Storage) !== "undefined") {
+                // Store
+                var x = "helloX";
+                localStorage.setItem("lastname", "Smith");
+                localStorage.ln = "andy";
+                localStorage["fn"] = "Jack";
+                localStorage[x] = "xcccc";
+                // Retrieve
+                document.getElementById("result").innerHTML = 
+                        localStorage.getItem("lastname") + localStorage.ln + 
+                        localStorage["fn"]+localStorage.helloX;
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        </script>
+
+    </body>
+</html>

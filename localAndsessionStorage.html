@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            //local storage
+            function clickCounter() {
+                if (typeof (Storage) !== "undefined") {
+                    if (localStorage.clickcount) {
+                        localStorage.clickcount = Number(localStorage.clickcount) + 1;  // string to number
+                    } else {
+                        localStorage.clickcount = 1;
+                    }
+                    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s). in local storage";
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+            }
+
+            // session storage
+            function clickCounter2() {
+                if (typeof (Storage) !== "undefined") {
+                    if (sessionStorage.clickcount) {
+                        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+                    } else {
+                        sessionStorage.clickcount = 1;
+                    }
+                    document.getElementById("result2").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in session storage.";
+                } else {
+                    document.getElementById("result2").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <p><button onclick="clickCounter()" type="button">Click me!(local storage)</button></p>
+        <p><button onclick="clickCounter2()" type="button">Click me!(session Storage)</button></p>
+
+        <div id="result"></div>
+        <div id="result2"></div>
+        <p>Click the button to see the counter increase.</p>
+        <p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+    </body>
+</html>
